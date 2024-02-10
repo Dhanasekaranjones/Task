@@ -1,0 +1,24 @@
+body{
+    overflow-y: hidden;
+}
+.customBtn{
+    float: right;
+}
+.img-thumbnail{
+width: 50% !important;
+}
+/* .cart-badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 0.3em 0.6em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  } */
+  .pro_img{
+    position: absolute;
+    width: 20%;
+    right: 450px;
+  }

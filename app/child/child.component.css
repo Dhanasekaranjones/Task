@@ -1,0 +1,30 @@
+.customCard {
+    max-width: 40%;
+    align-items: center;
+}
+
+.customForm {
+    margin: 40px 0px;
+    padding: 70px;
+    background: whitesmoke;
+    border-radius: 50px;
+}
+
+.saveBtn {
+    float: right;
+}
+
+.required::after {
+    content: ' *';
+    color: red;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
