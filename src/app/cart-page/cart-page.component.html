@@ -1,0 +1,65 @@
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Cart Details</a>
+    <a class="navbar-brand" href="javascript:void(0)" (click)="goBack()"><i class="fa fa-arrow-circle-left"></i> Back To
+        List <span class="badge badge-secondary badge-pill"></span></a>
+</nav><br />
+<div class="container">
+    <div class="card" style="padding: 10px;">
+        <table class="table table-hover shopping-cart-wrap">
+            <thead class="text-muted">
+                <tr>
+                    <!-- <th scope="col">Image</th> -->
+                    <th scope="col">Description</th>
+                    <th scope="col" width="120">Quantity</th>
+                    <th scope="col" width="120">Price</th>
+                    <th scope="col" width="200" class="text-right">Action</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="cartItems.length > 0">
+                <tr *ngFor="let item of cartItems; let i = index">
+                    <td>
+                        <figure class="media">
+                            <div class="img-wrap"><img src="{{item.imgBase}}" class="img-thumbnail img-sm"></div>
+                            <figcaption class="media-body">
+                                <h6 class="title text-truncate">{{item.name}}</h6>
+                                <h6 class="title text-truncate" style="word-break:break-all ;">{{item.Description}}</h6>
+                            </figcaption>
+                        </figure>
+                    </td>
+                    <td>
+                        <div>
+                            <button class="btn btn-sm bg-light" (click)="decreaseQuantity(i)">&nbsp;-&nbsp;</button>
+                            <!-- <span>{{ item.quantity }}</span> -->
+                            <input type="number" [value]="item.quantity" readonly class="customField">
+                            <button class="btn btn-sm bg-light" (click)="increaseQuantity(i)">&nbsp;+&nbsp;</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="price-wrap">
+                            <!-- <var class="price">{{item.price | currency:"INR":"symbol"}}</var> -->
+                            <var class="price">{{ item.price * item.quantity | currency:"INR":"symbol"}}</var>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <a href="javascript:void(0)" class="btn btn-outline-danger" (click)="removeItem(i)"> ×
+                            Remove</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            <tbody>
+                <tr *ngIf="cartItems.length === 0">
+                    <div>
+                        <img src="../../assets/empty_cart.png" class="pro_img"/>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <div>
+                Total Price: <b>{{ totalAmount | currency:"INR":"symbol"}}</b>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Add Product Details</a>
+    <a class="navbar-brand" href="javascript:void(0)" (click)="goBack()"><i class="fa fa-arrow-circle-left"></i> Back To
+        List</a>
+</nav>
+<div class="container customCard">
+    <form [formGroup]="myForm" class="customForm" (ngSubmit)="onSubmit()" novalidate>
+        <input type="hidden" formControlName="id">
+        <h4 style="text-align: center;">Add Products</h4><br />
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="required">Choose Image</label>
+            <input type="file" class="form-control" accept="image/*" formControlName="image" (change)="upload($event);"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="required">Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="required">Description</label>
+            <textarea type="text" class="form-control" formControlName="Description" placeholder="Enter Description"
+                required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="required">Price</label>
+            <input type="number" class="form-control" formControlName="price" placeholder="Enter Price" required>
+        </div>
+        
+        <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary saveBtn">Submit</button>
+        <button type="submit" class="btn btn-danger" (click)="gotoList()" style="float: right;margin-right: 10px;">Cancel</button>
+    </form>
+</div>
+
+<!-- Edit form -->
+<!-- <div class="container customCard">
+    <form [formGroup]="editForm" class="customForm" (ngSubmit)="onSubmit()" novalidate>
+        <input type="hidden" formControlName="id">
+        <h4 style="text-align: center;">Edit Products</h4><br/>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Choose Image</label>
+            <input type="file" class="form-control" accept="image/*" formControlName="image" (change)="upload($event);"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Description</label>
+            <input type="text" class="form-control" formControlName="Description" placeholder="Enter Description"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Price</label>
+            <input type="number" class="form-control" formControlName="price" placeholder="Enter Price" required>
+        </div>
+        <button type="submit" [disabled]="editForm.invalid" class="btn btn-primary saveBtn">Submit</button>
+    </form>
+</div> -->
